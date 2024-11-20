@@ -1,10 +1,12 @@
 locals {
 usermapping = <<UM
 <user-mapping>
+<!-- DEMO CREDENTIALS -->
 <authorize 
 username="cloudconnector"
 password="8b4feec7f41e1c157701fc950372a8a2"
 encoding="md5">
+<!-- DEMO CREDENTIALS -->
 <connection name="Connect to Region1 Linux Workload (RDP)">
   <protocol>rdp</protocol>
   <param name="hostname">${module.workload1.private_ip[0]}</param>
@@ -26,6 +28,7 @@ encoding="md5">
   <param name="username">admin</param>
   <param name="private-key">${tls_private_key.key.private_key_pem}</param>
 </connection>
+<!-- DEMO CREDENTIALS -->
 <connection name="Connect to Region2 Linux Workload (RDP)">
   <protocol>rdp</protocol>
   <param name="hostname">${module.workload2.public_ip[0]}</param>
@@ -93,6 +96,7 @@ output "zpa_portal" {
 output "cc_portal" {
     value = "https://connector.${var.cloudname}"
 }
+##DEMO CREDENTIALS
 output "wkld_username" {
   value = "cloudconnector"
 }
